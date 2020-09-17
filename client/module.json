@@ -1,0 +1,23 @@
+{
+  "name": "todo",
+  "commands": true,
+  "windows": [
+    {
+      "name": "WindowTodo",
+      "title": "To-do list",
+      "icon": "format-list-bulleted",
+      "window": {
+        "menu": true,
+        "closed": true,
+        "minimized": false,
+        "resizable": true,
+        "noWindowContent": true,
+        "width": 480,
+        "height": 320,
+        "x": -1,
+        "y": 0,
+        "z": 0
+      }
+    }
+  ]
+}
