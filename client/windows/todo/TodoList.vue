@@ -132,7 +132,7 @@
       vertical-align: top;
       width: 38px;
       height: 40px;
-      line-height: 35px;
+      line-height: 39px;
       font-size: 24px;
       padding-left: 12px;
       color: #555;
@@ -156,7 +156,7 @@
       width: calc(100% - 125px);
       padding: 0 0 0 5px;
       height: 38px;
-      line-height: 38px;
+      line-height: 41px;
       font-size: 15px;
     }
 
