@@ -36,7 +36,7 @@
 <script>
   import TodoInput from './todo/TodoInput.vue'
   import TodoList from './todo/TodoList.vue'
-  import Window from "../../../core/components/window/Window";
+  import Window from "~/core/components/window/Window";
 
   const localstorage_todo = 'todo';
   const localstorage_todo_filter = 'todo-filter';
