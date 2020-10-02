@@ -1,12 +1,8 @@
 {
   "name": "todo",
-  "version": "1.0.0",
-  "license": "MIT",
-  "homepage": "https://github.com/hacklover/owd-todo",
-  "author": {
-    "name": "hacklover",
-    "url": "https://hacklover.net"
-  },
+  "version": "1.2.0",
+  "singleton": true,
+  "autostart": true,
   "commands": true,
   "windows": [
     {
@@ -21,10 +17,16 @@
         "noWindowContent": true,
         "width": 480,
         "height": 320,
-        "x": -1,
+        "x": 0,
         "y": 0,
         "z": 0
       }
     }
-  ]
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/hacklover/owd-iframe",
+  "author": {
+    "name": "hacklover",
+    "url": "https://hacklover.net"
+  }
 }
