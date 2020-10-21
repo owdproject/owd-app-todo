@@ -1,5 +1,5 @@
 # To-do module for OWD Client
-> A to-do list is the perfect way to test out Vue.js; my journey with Vue started from here
+> A to-do list is a perfect exercise to practice Vue.js; my journey with Vue started from here
 
 <p>
     <a href="https://github.com/owdproject/owd-client/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg" /></a>
@@ -13,7 +13,8 @@
 [Try it out](https://hacklover.net), just open the terminal and type "todo"
 
 ## Features
-- It saves things to local storage
+- Save and restore list using local storage
+- Mark items as done
 
 ## Quick install
 - Copy the content of the `client` module folder into `owd-client/src/modules/todo`
