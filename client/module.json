@@ -1,9 +1,8 @@
 {
   "name": "todo",
-  "version": "1.3.0",
+  "version": "2.0.0",
   "singleton": true,
   "autostart": true,
-  "commands": true,
   "windows": [
     {
       "name": "WindowTodo",
