@@ -1,13 +1,13 @@
 {
   "name": "todo",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "singleton": true,
   "autostart": true,
   "windows": [
     {
       "name": "WindowTodo",
       "title": "To-do list",
-      "icon": "format-list-bulleted",
+      "icon": "mdi-format-list-bulleted",
       "window": {
         "menu": true,
         "closed": true,
@@ -21,11 +21,5 @@
         "z": 0
       }
     }
-  ],
-  "license": "MIT",
-  "homepage": "https://github.com/hacklover/owd-todo",
-  "author": {
-    "name": "hacklover",
-    "url": "https://hacklover.net"
-  }
+  ]
 }
