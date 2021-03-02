@@ -1,6 +1,12 @@
 {
   "name": "todo",
   "version": "2.0.1",
+  "license": "MIT",
+  "homepage": "https://github.com/hacklover/owd-terminal",
+  "author": {
+    "name": "hacklover",
+    "url": "https://github.com/hacklover"
+  },
   "singleton": true,
   "autostart": true,
   "windows": [
