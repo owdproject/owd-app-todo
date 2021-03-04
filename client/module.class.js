@@ -1,6 +1,6 @@
-import {Module} from '@owd-client/core'
+import {ModuleApp} from "@owd-client/core";
 
-export default class TodoModule extends Module {
+export default class TodoModule extends ModuleApp {
   constructor(context) {
     super(context)
   }
@@ -8,7 +8,7 @@ export default class TodoModule extends Module {
   loadCommands({store}) {
     return {
       'todo': function () {
-        store.dispatch('core/windows/windowOpen', 'WindowTodo');
+        store.dispatch('core/window/windowOpen', 'WindowTodo');
       }
     }
   }

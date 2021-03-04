@@ -1,28 +1,29 @@
 {
   "name": "todo",
-  "version": "2.0.1",
+  "version": "2.0.0",
   "license": "MIT",
-  "homepage": "https://github.com/hacklover/owd-terminal",
+  "homepage": "https://github.com/hacklover/owd-todo",
   "author": {
     "name": "hacklover",
     "url": "https://github.com/hacklover"
   },
   "singleton": true,
-  "autostart": true,
   "windows": [
     {
       "name": "WindowTodo",
+      "category": "accessories",
       "title": "To-do list",
       "icon": "mdi-format-list-bulleted",
-      "window": {
-        "menu": true,
-        "closed": true,
-        "minimized": false,
-        "resizable": true,
-        "noWindowContent": true,
+      "menu": true,
+      "minimized": false,
+      "resizable": true,
+      "noWindowContent": true,
+      "size": {
         "width": 480,
-        "height": 320,
-        "x": 0,
+        "height": 320
+      },
+      "position": {
+        "x": -1,
         "y": 0,
         "z": 0
       }

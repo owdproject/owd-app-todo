@@ -1,7 +1,7 @@
 <template>
   <transition name="fade">
     <li :class="{ editing: todo.editing, completed: todo.completed }">
-      <div class="checkbox" @click="todoComplete()">
+      <div class="checkbox" @click="todoComplete">
         <v-icon v-if="!todo.completed">mdi-checkbox-blank-outline</v-icon>
         <v-icon v-else>mdi-checkbox-marked-outline</v-icon>
       </div>
@@ -12,14 +12,14 @@
         v-if="todo.editing"
         type="text"
         placeholder="empty"
-        @keyup.esc="todoEdit()"
-        @keyup.enter="todoEdit()"
-        @dblclick="todoDblClickEdit()"
+        @keyup.esc="todoEdit"
+        @keyup.enter="todoEdit"
+        @dblclick="todoDblClickEdit"
       />
-      <span v-if="!todo.editing" class="ellipse" @dblclick="todoEdit()">{{ todo.title }}</span>
+      <span v-if="!todo.editing" class="ellipse" @dblclick="todoEdit">{{ todo.title }}</span>
 
       <div class="btn-group">
-        <div class="btn btn-edit" @click="todoEdit()">
+        <div class="btn btn-edit" @click="todoEdit">
           <v-icon v-if="!todo.editing">mdi-pencil</v-icon>
           <v-icon v-if="todo.editing">mdi-content-save</v-icon>
         </div>
@@ -112,11 +112,10 @@
     line-height: 40px;
     font-size: 16px;
     border-radius: 2px;
-    color: #868686;
     cursor: default;
 
     &:not(:last-child) {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid $windowContentSeparator;
     }
 
     .v-icon {
@@ -130,7 +129,7 @@
     div.checkbox {
       display: inline-block;
       vertical-align: top;
-      width: 38px;
+      width: 37px;
       height: 40px;
       line-height: 39px;
       font-size: 24px;
@@ -155,8 +154,7 @@
       vertical-align: top;
       width: calc(100% - 125px);
       padding: 0 0 0 5px;
-      height: 38px;
-      line-height: 41px;
+      height: 100%;
       font-size: 15px;
     }
 
@@ -166,8 +164,7 @@
       .btn {
         position: absolute;
         top: 0;
-        height: 38px;
-        line-height: 40px;
+        height: 100%;
         width: 40px;
         text-align: center;
         cursor: pointer;
@@ -190,13 +187,13 @@
         }
 
         &:hover {
-          background: rgba(0, 0, 0, 0.2);
+          background: $windowContentTableRowHover;
         }
       }
     }
 
     &:hover, &.editing {
-      background: rgba(0, 0, 0, 0.2);
+      background: $windowContentTableRowHover;
 
       .btn-group {
         display: block;

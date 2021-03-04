@@ -18,7 +18,10 @@
 
 ## Quick install
 - Copy the content of the `client` module folder into `owd-client/src/modules/todo`
-- Add the reference of this module into `owd-client/config/modules.json` 
+- Add the reference of this module into `owd-client/config/modules.json`
+
+## Compatibility
+- Open Web Desktop client v2.0.0-alpha.2
 
 ## License
 This project is released under the [MIT License](LICENSE)

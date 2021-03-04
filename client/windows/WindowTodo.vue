@@ -1,17 +1,17 @@
 <template>
-  <Window :title="data.title" :window="data">
+  <Window :window="window">
     <div class="todo-container">
       <div class="todo-input">
         <TodoInput
-          :value="todoNew"
-          @todo-add="todoAdd">
-        </TodoInput>
+            :value="todoNew"
+            @todo-add="todoAdd"
+        />
       </div>
 
       <div class="todo-list">
         <ul>
-          <template v-for="(todo, index) in todoListFiltered">
-            <TodoList :key="index" :todo="todo" @todo-save="todoSave" @todo-remove="todoRemove"/>
+          <template v-for="(todo, index) in todoListFiltered" :key="index">
+            <TodoList :todo="todo" @todo-save="todoSave" @todo-remove="todoRemove"/>
           </template>
         </ul>
       </div>
@@ -34,22 +34,21 @@
 </template>
 
 <script>
+import Window from "@owd-client/core/src/components/window/Window";
 import TodoInput from './todo/TodoInput.vue'
 import TodoList from './todo/TodoList.vue'
-import Window from "@owd-client/core/src/components/window/Window";
 
 const localstorage_todo = 'todo';
 const localstorage_todo_filter = 'todo-filter';
 
 export default {
-  name: "WindowTodo",
   components: {
     Window,
     TodoInput,
     TodoList
   },
   props: {
-    data: Object
+    window: Object
   },
   data() {
     return {
@@ -178,11 +177,12 @@ export default {
 
 <style scoped lang="scss">
 .todo-container {
-  height: calc(100% - 40px);
+  display: grid;
+  grid-template-rows: 60px calc(100% - 94px) 34px;
+  max-height: 100%;
 
   .todo-list {
     overflow-y: auto;
-    height: calc(100% - 59px);
 
     ul {
       list-style-type: none;
@@ -196,11 +196,12 @@ export default {
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 12px;
+    height: 34px;
+    line-height: 34px;
     font-size: 12px;
-    color: #656565;
-    border-top: 1px solid rgba(255, 255, 255, 0.03);
+    box-shadow: 0 0 0 1px $windowContentBorder;
     margin: 0;
+    padding: 0 12px;
     list-style-type: none;
     cursor: default;
     user-select: none;
@@ -215,11 +216,10 @@ export default {
 
         a {
           cursor: pointer;
-          color: #656565;
           padding: 10px 5px;
 
           &.active {
-            color: #AAA;
+            color: $windowColorActive;
           }
         }
       }

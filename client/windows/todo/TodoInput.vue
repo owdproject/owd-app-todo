@@ -19,10 +19,10 @@
 
 <style scoped lang="scss">
   input {
-    background: #141414;
-    border: 1px solid #252525;
+    background: $windowContentInputBackground;
+    border: 1px solid $windowContentBorder;
     border-radius: 2px;
-    color: #CCC;
+    color: $windowContentInputColor;
     margin: 0 0 12px 0;
     padding: 15px;
     width: 100%;
