@@ -123,7 +123,7 @@
     }
 
     &.completed div.checkbox .v-icon {
-      color: #1ba0c1;
+      color: $colorPrimary;
     }
 
     div.checkbox {
@@ -139,6 +139,8 @@
     }
 
     input[type="text"] {
+      position: relative;
+      top: -1px;
       background: none;
       border: none;
       width: calc(100% - 125px);
@@ -168,6 +170,10 @@
         width: 40px;
         text-align: center;
         cursor: pointer;
+
+        .v-icon {
+          color: $windowNavButtonColor;
+        }
 
         &.btn-edit {
           right: 40px;
