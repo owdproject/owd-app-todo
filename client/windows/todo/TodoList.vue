@@ -123,15 +123,15 @@
     }
 
     &.completed div.checkbox .v-icon {
-      color: $colorPrimary;
+      color: rgb(var(--v-theme-primary));
     }
 
     div.checkbox {
       display: inline-block;
       vertical-align: top;
-      width: 37px;
+      width: 42px;
       height: 40px;
-      line-height: 39px;
+      line-height: 38px;
       font-size: 24px;
       padding-left: 12px;
       color: #555;
@@ -145,8 +145,7 @@
       border: none;
       width: calc(100% - 125px);
       padding: 0 0 0 5px;
-      height: 38px;
-      line-height: 40px;
+      height: 40px;
       font-size: 15px;
       color: #FFF;
     }
