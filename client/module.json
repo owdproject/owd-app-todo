@@ -13,7 +13,12 @@
       "name": "WindowTodo",
       "category": "accessories",
       "title": "To-do list",
-      "icon": "mdi-format-list-bulleted",
+      "icon": {
+        "name": "mdi-format-list-bulleted",
+        "offset": {
+          "y": -3
+        }
+      },
       "menu": true,
       "minimized": false,
       "resizable": true,
