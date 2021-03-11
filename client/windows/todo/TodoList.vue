@@ -34,7 +34,6 @@
 
 <script>
   export default {
-    name: "TodoList",
     props: {
       todo: Object
     },

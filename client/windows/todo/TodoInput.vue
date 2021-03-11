@@ -4,7 +4,6 @@
 
 <script>
   export default {
-    name: "TodoInput",
     props: {
       value: String
     },
