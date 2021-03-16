@@ -16,7 +16,7 @@
       "icon": {
         "name": "mdi-format-list-bulleted",
         "offset": {
-          "y": -3
+          "y": -2
         }
       },
       "menu": true,
