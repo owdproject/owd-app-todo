@@ -122,7 +122,7 @@
     }
 
     &.completed div.checkbox .v-icon {
-      color: rgb(var(--v-theme-primary));
+      color: var(--v-primary);
     }
 
     div.checkbox {
@@ -130,7 +130,7 @@
       vertical-align: top;
       width: 42px;
       height: 40px;
-      line-height: 38px;
+      line-height: 36px;
       font-size: 24px;
       padding-left: 12px;
       color: #555;
@@ -187,6 +187,7 @@
 
           .v-icon {
             font-size: 21px;
+            vertical-align: -3px;
           }
         }
 
