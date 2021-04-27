@@ -2,6 +2,10 @@
 > A to-do list is a perfect exercise to practice with Vue.js
 
 <p>
+    <img src="media/demo.png" alt="OWD Todo module demo" />
+</p>
+
+<p>
     <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg" /></a>
     <a href="https://github.com/owdproject/owd-client"><img src="https://img.shields.io/badge/owd-client-3A9CB6" /></a>
     <a href="https://github.com/topics/owd-modules"><img src="https://img.shields.io/badge/owd-modules-888" /></a>
