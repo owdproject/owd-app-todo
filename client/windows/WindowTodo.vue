@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import Window from "@owd-client/core/src/components/window/Window";
+import Window from "@owd-client/core/src/components/window/app/WindowApp.vue";
 import TodoInput from './todo/TodoInput.vue'
 import TodoList from './todo/TodoList.vue'
 
