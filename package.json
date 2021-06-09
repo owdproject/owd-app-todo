@@ -6,8 +6,5 @@
   "author": {
     "name": "hacklover",
     "url": "https://github.com/hacklover"
-  },
-  "dependencies": {
-    "@owd-client/core": "^2.0.0-beta.0-verdaccio.27"
   }
 }
