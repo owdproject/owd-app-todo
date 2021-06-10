@@ -1,29 +1,26 @@
 <template>
-  <input placeholder="Add something and press enter" @keyup.enter="todoAdd" />
+  <input placeholder="Add something and press enter" @keyup.enter="todoAdd" v-model="input" />
 </template>
 
-<script>
-  export default {
-    props: {
-      value: String
-    },
-    methods: {
-      todoAdd: function (event) {
-        this.$emit('todo-add', event.target.value);
-        event.target.value = '';
-      }
-    }
-  }
+<script setup>
+import {ref, defineEmit, defineProps} from "vue";
+
+const input = ref('')
+
+const emit = defineEmit([
+  'todo-add'
+])
+
+function todoAdd(event) {
+  emit('todo-add', input.value);
+  input.value = '';
+}
 </script>
 
 <style scoped lang="scss">
   input {
-    background: $windowContentInputBackground;
-    border: 1px solid $windowContentBorder;
-    border-radius: 2px;
-    color: $windowContentInputColor;
     margin: 0 0 12px 0;
-    padding: 15px;
+    min-height: 52px;
     width: 100%;
     box-sizing: border-box;
   }
