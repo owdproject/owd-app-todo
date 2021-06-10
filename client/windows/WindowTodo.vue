@@ -1,11 +1,8 @@
 <template>
-  <Window :window="window">
+  <Window>
     <div class="todo-container">
       <div class="todo-input">
-        <TodoInput
-            :value="todoNew"
-            @todo-add="todoAdd"
-        />
+        <TodoInput @todo-add="todoAdd" />
       </div>
 
       <div class="todo-list">
@@ -24,155 +21,112 @@
           Completed: {{ todoCountCompleted }} / {{ todoCount }}
         </li>
         <li>
-          <a :class="[{ active: todoFilter === 'all' }]" @click="todoFilter = 'all'">all</a>
-          <a :class="[{ active: todoFilter === 'todo' }]" @click="todoFilter = 'todo'">to do</a>
-          <a :class="[{ active: todoFilter === 'done' }]" @click="todoFilter = 'done'">done</a>
+          <a :class="[{ active: todo.filter === 'all' }]" @click="todo.filter = 'all'">all</a>
+          <a :class="[{ active: todo.filter === 'todo' }]" @click="todo.filter = 'todo'">to do</a>
+          <a :class="[{ active: todo.filter === 'done' }]" @click="todo.filter = 'done'">done</a>
         </li>
       </ul>
     </div>
   </Window>
 </template>
 
-<script>
+<script setup>
 import Window from "@owd-client/core/src/components/window/app/WindowApp.vue";
 import TodoInput from './todo/TodoInput.vue'
 import TodoList from './todo/TodoList.vue'
+import {onMounted, watch, ref, reactive, computed} from "vue";
+import {loadStorage, saveStorage} from "@owd-client/core/src/helpers/helperStorage";
 
-const localstorage_todo = 'todo';
-const localstorage_todo_filter = 'todo-filter';
+const storageTodo = 'todo';
+const storageTodoFilter = 'todo-filter';
 
-export default {
-  components: {
-    Window,
-    TodoInput,
-    TodoList
-  },
-  props: {
-    window: Object
-  },
-  data() {
-    return {
-      todoNew: '',
-      todoList: [],
-      todoFilter: 'todo'
-    }
-  },
-  watch: {
-    todoFilter: function () {
-      this.todoSaveFilter()
-    }
-  },
-  computed: {
-    todoCount: function () {
-      return this.todoList.length
-    },
-    todoCountCompleted: function () {
-      return this.todoList.filter(function (item) {
-        return item.completed
-      }).length
-    },
-    todoCountNotCompleted: function () {
-      return this.todoList.filter(function (item) {
-        return !item.completed
-      }).length
-    },
-    todoListFiltered: function () {
-      let todoList = this.todoList;
-      let todoFilter = this.todoFilter;
+const todo = reactive({
+  list: [],
+  filter: 'todo'
+});
 
-      return todoList
-          //.sort((a, b) => (+b.completed) - (+a.completed) || a.title.localeCompare(b.title))
-          .sort((a, b) => (+b.completed) - (+a.completed))
-          .filter(function (item) {
-            switch (todoFilter) {
-              case 'todo':
-                return item.completed === false;
-              case 'done':
-                return item.completed === true;
-              default:
-                return true;
-            }
-          })
-    }
-  },
-  methods: {
-    /**
-     * Add to-do
-     */
-    todoAdd: function (value) {
-      if (value && value.trim() !== '') {
-        this.todoList.push({
-          title: value,
-          completed: false,
-          editing: false
-        });
-
-        // set show All if Done filter is active
-        if (this.todoFilter === 'done') {
-          this.todoFilter = 'all'
+const todoCount = computed(() => todo.list.length)
+const todoCountCompleted = computed(() => todo.list.filter((item) => item.completed).length)
+const todoCountNotCompleted = computed(() => todo.list.filter((item) => !item.completed).length)
+const todoListFiltered = computed(() => {
+  return todo.list
+      //.sort((a, b) => (+b.completed) - (+a.completed) || a.title.localeCompare(b.title))
+      .sort((a, b) => (+b.completed) - (+a.completed))
+      .filter(function (item) {
+        switch (todo.filter) {
+          case 'todo':
+            return item.completed === false;
+          case 'done':
+            return item.completed === true;
+          default:
+            return true;
         }
+      })
+})
 
-        this.todoSave();
-      }
-    },
+watch(() => todo.filter, () => todoSaveFilter())
 
-    /**
-     * Remove to-do
-     */
-    todoRemove: function (todo) {
-      let index = this.todoList.indexOf(todo);
-      if (index !== false) {
-        this.todoList.splice(index, 1);
-        this.todoSave();
-      }
-    },
+function todoAdd(item) {
+  if (item && item.trim() !== '') {
+    todo.list.push({
+      title: item,
+      completed: false,
+      editing: false
+    });
 
-    /**
-     * Save to-do filter
-     */
-    todoSaveFilter: function () {
-      localStorage.setItem(localstorage_todo_filter, this.todoFilter)
-    },
-
-    /**
-     * Save all to-do to local storage
-     */
-    todoSave: function () {
-      localStorage.setItem(localstorage_todo, JSON.stringify(this.todoList))
-    },
-
-    /**
-     * Load all to-do from local storage
-     */
-    todoLoad: function () {
-      // load to-do list
-      if (localStorage.getItem(localstorage_todo)) {
-        try {
-          this.todoList = JSON.parse(localStorage.getItem(localstorage_todo))
-        } catch (e) {
-          localStorage.removeItem(localstorage_todo)
-        }
-      }
-
-      // load to-do filter from local storage
-      if (localStorage.getItem(localstorage_todo_filter)) {
-        try {
-          let todoFilter = localStorage.getItem(localstorage_todo_filter);
-          if (todoFilter === 'todo' || todoFilter === 'done' || todoFilter === 'all') {
-            this.todoFilter = todoFilter
-          } else {
-            this.todoFilter = 'all'
-          }
-        } catch (e) {
-          localStorage.removeItem(localstorage_todo_filter)
-        }
-      }
+    // set show All if Done filter is active
+    if (todo.filter === 'done') {
+      todo.filter = 'all'
     }
-  },
-  mounted() {
-    this.todoLoad()
+
+    todoSave();
   }
 }
+
+/**
+ * Remove to-do
+ */
+function todoRemove(item) {
+  const index = todo.list.indexOf(item);
+
+  if (index !== false) {
+    todo.list.splice(index, 1);
+    todoSave();
+  }
+}
+
+/**
+ * Save to-do filter
+ */
+function todoSaveFilter() {
+  saveStorage(storageTodoFilter, todo.filter)
+}
+
+/**
+ * Save to-do list to local storage
+ */
+function todoSave() {
+  saveStorage(storageTodo, JSON.stringify(todo.list))
+}
+
+/**
+ * Load to-do list from local storage
+ */
+function todoLoad() {
+  // load to-do list from local storage
+  todo.list = JSON.parse(loadStorage(storageTodo)) || []
+
+  // load to-do filter from local storage
+  const todoFilter = loadStorage(storageTodoFilter);
+
+  if (todoFilter === 'todo' || todoFilter === 'done' || todoFilter === 'all') {
+    todo.filter = todoFilter
+  } else {
+    todo.filter = 'all'
+  }
+}
+
+onMounted(() => todoLoad())
 </script>
 
 <style scoped lang="scss">
@@ -199,7 +153,7 @@ export default {
     height: 34px;
     line-height: 34px;
     font-size: 12px;
-    box-shadow: 0 0 0 1px $windowContentBorder;
+    box-shadow: 0 0 0 1px $owd-window-content-border-color;
     margin: 0;
     padding: 0 12px;
     list-style-type: none;
@@ -219,7 +173,7 @@ export default {
           padding: 10px 5px;
 
           &.active {
-            color: $windowColorActive;
+            color: $owd-window-item-text-color-hover;
           }
         }
       }
