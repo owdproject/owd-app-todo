@@ -7,13 +7,6 @@ export default class TodoModule extends ModuleApp {
   loadModule() {
     return {
       name: "todo",
-      version: "2.0.0",
-      license: "MIT",
-      homepage: "https://github.com/hacklover/owd-todo",
-      author: {
-        name: "hacklover",
-        url: "https://github.com/hacklover"
-      },
       singleton: true,
       windows: [
         {
