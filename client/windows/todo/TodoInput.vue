@@ -1,5 +1,5 @@
 <template>
-  <input placeholder="Add something and press enter" @keyup.enter="todoAdd" v-model="input" />
+  <input class="v-input" placeholder="Add something and press enter" @keyup.enter="todoAdd" v-model="input" />
 </template>
 
 <script setup>
