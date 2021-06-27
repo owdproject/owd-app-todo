@@ -24,16 +24,16 @@
 - Move to your client folder, then
   ```
   # Install this module with Npm
-  npm install hacklover/owd-app-todo
+  npm install https://github.com/hacklover/owd-app-todo
   
   # Or using Yarn
-  yarn add hacklover/owd-app-todo
+  yarn add https://github.com/hacklover/owd-app-todo
   ```
 - Define this module in `owd-client/client.extensions.ts`
   ```js
   import AboutModule from "@owd-client/core/src/modules/app/about";
   import DebugModule from "@owd-client/core/src/modules/app/debug";
-  import TodoModule from "hacklover/owd-app-todo/client";
+  import TodoModule from "owd-app-todo/client";
 
   export default {
     app: {
