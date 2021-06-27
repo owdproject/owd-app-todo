@@ -4,7 +4,7 @@ import {ModuleApp} from "@owd-client/core/index";
 import WindowTodo from "./windows/WindowTodo.vue";
 
 export default class TodoModule extends ModuleApp {
-  loadModule() {
+  setup() {
     return {
       name: "todo",
       singleton: true,
@@ -33,7 +33,7 @@ export default class TodoModule extends ModuleApp {
     }
   }
 
-  loadCommands({store}: OwdModuleAppLoadStoreContext) {
+  setupCommands({store}: OwdModuleAppLoadStoreContext) {
     return {
       'todo': function () {
         store.dispatch('core/window/windowOpen', 'WindowTodo');
