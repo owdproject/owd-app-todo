@@ -32,7 +32,7 @@
 </template>
 
 <script setup>
-import {getCurrentInstance, defineEmit, defineProps, watch, nextTick} from "vue";
+import {defineEmit, defineProps, watch, nextTick} from "vue";
 
 const emit = defineEmit([
   'todo-save',
