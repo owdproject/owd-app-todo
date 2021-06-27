@@ -1,5 +1,5 @@
 <template>
-  <Window>
+  <WindowApp>
     <div class="todo-container">
       <div class="todo-input">
         <TodoInput @todo-add="todoAdd" />
@@ -27,11 +27,10 @@
         </li>
       </ul>
     </div>
-  </Window>
+  </WindowApp>
 </template>
 
 <script setup>
-import Window from "@owd-client/core/src/components/window/app/WindowApp.vue";
 import TodoInput from './todo/TodoInput.vue'
 import TodoList from './todo/TodoList.vue'
 import {onMounted, watch, ref, reactive, computed} from "vue";
