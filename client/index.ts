@@ -33,7 +33,7 @@ export default class TodoModule extends ModuleApp {
     }
   }
 
-  setupCommands({store}: OwdModuleAppLoadStoreContext) {
+  setupCommands({store}: OwdModuleAppSetupStoreContext) {
     return {
       'todo': function () {
         store.dispatch('core/window/windowOpen', 'WindowTodo');
