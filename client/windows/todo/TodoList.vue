@@ -32,9 +32,9 @@
 </template>
 
 <script setup>
-import {defineEmit, defineProps, watch, nextTick} from "vue";
+import {defineEmits, defineProps, watch, nextTick} from "vue";
 
-const emit = defineEmit([
+const emit = defineEmits([
   'todo-save',
   'todo-remove'
 ])

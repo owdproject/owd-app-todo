@@ -3,15 +3,15 @@
 </template>
 
 <script setup>
-import {ref, defineEmit, defineProps} from "vue";
+import {ref, defineEmits} from "vue";
 
 const input = ref('')
 
-const emit = defineEmit([
+const emit = defineEmits([
   'todo-add'
 ])
 
-function todoAdd(event) {
+function todoAdd() {
   emit('todo-add', input.value);
   input.value = '';
 }
