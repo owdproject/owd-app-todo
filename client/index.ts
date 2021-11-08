@@ -15,10 +15,7 @@ export default class TodoModule extends ModuleApp {
           category: "accessories",
           title: "To-do list",
           icon: "mdi-format-list-bulleted",
-          menu: true,
-          minimized: false,
           resizable: true,
-          noWindowContent: true,
           size: {
             width: 480,
             height: 320

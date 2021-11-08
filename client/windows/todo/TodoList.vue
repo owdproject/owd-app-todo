@@ -137,13 +137,17 @@ function todoRemove(todo) {
       padding-left: 12px;
       color: #555;
       cursor: pointer;
+
+      i {
+        font-size: 28px;
+      }
     }
 
     input[type="text"] {
       background: none;
       border: none;
       width: calc(100% - 125px);
-      padding: 0 0 0 5px;
+      padding: 0 0 0 12px;
       height: 40px;
       font-size: 15px;
       color: #FFF;
@@ -153,7 +157,7 @@ function todoRemove(todo) {
       display: inline-block;
       vertical-align: top;
       width: calc(100% - 125px);
-      padding: 0 0 0 5px;
+      padding-left: 12px;
       height: 100%;
       font-size: 15px;
     }
