@@ -1,10 +1,8 @@
 <template>
-  <input class="v-input" placeholder="Add something and press enter" @keyup.enter="todoAdd" v-model="input" />
+  <input placeholder="Remember me to-do..." @keyup.enter="todoAdd" v-model="input" />
 </template>
 
 <script setup>
-import {ref, defineEmits} from "vue";
-
 const input = ref('')
 
 const emit = defineEmits([
