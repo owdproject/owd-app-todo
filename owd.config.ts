@@ -8,7 +8,7 @@ export default defineDesktopApp({
       component: () => import('./app/components/Window/WindowTodo.vue'),
       name: "WindowTodo",
       category: "accessories",
-      title: "ToDo",
+      title: "To-do",
       icon: "mdi:format-list-bulleted",
       pinned: true,
       resizable: false,
