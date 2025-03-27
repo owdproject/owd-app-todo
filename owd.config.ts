@@ -1,6 +1,8 @@
 export default defineDesktopApp({
   id: "org.owdproject.todo",
   name: "Todo",
+  category: "productivity",
+  icon: "mdi:format-list-bulleted",
   windows: {
     main: {
       component: () => import('./app/components/Window/WindowTodo.vue'),
