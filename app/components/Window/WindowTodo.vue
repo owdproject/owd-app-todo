@@ -51,11 +51,11 @@ function todoRemove(item) {
 <template>
   <Window>
     <div class="todo-container">
-      <div class="todo-input">
+      <div class="todo-input m-3">
         <TodoInput @todo-add="todoAdd" />
       </div>
 
-      <div class="todo-list">
+      <div class="todo-list mx-3">
         <ul>
           <template v-for="(todo, index) in todoListFiltered" :key="todo.id">
             <TodoList :todo="todo" @todo-remove="todoRemove"/>
