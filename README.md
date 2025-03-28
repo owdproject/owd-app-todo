@@ -33,7 +33,7 @@ The OWD Todo App is a module to manage your to-do list within the OWD environmen
 
 ## Compatibility
 
-This application is compatible with Open Web Desktop client version `v2.0.0-beta.5`.
+This application is compatible with Open Web Desktop client version `3.0.0-alpha.0`.
 
 ## License
 
