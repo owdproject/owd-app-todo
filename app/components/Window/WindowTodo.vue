@@ -23,6 +23,7 @@ const todoListFiltered = computed(() => {
 function todoAdd(item) {
   if (item && item.trim() !== '') {
     todoStore.list.push({
+      id: nanoid(8),
       title: item,
       completed: false,
       editing: false
@@ -56,7 +57,7 @@ function todoRemove(item) {
 
       <div class="todo-list">
         <ul>
-          <template v-for="(todo, index) in todoListFiltered" :key="index">
+          <template v-for="(todo, index) in todoListFiltered" :key="todo.id">
             <TodoList :todo="todo" @todo-remove="todoRemove"/>
           </template>
         </ul>
@@ -81,9 +82,10 @@ function todoRemove(item) {
 
 <style scoped lang="scss">
 .todo-container {
-  display: grid;
-  grid-template-rows: 60px calc(100% - 94px) 34px;
-  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-bottom: 34px;
 
   .todo-list {
     overflow-y: auto;
@@ -120,9 +122,6 @@ function todoRemove(item) {
         a {
           cursor: pointer;
           padding: 10px 5px;
-
-          &.active {
-          }
         }
       }
     }

@@ -1,30 +1,32 @@
 <template>
   <li :class="{ editing: props.todo.editing, completed: props.todo.completed }">
-    <div class="checkbox" @click="todoSetComplete">
-      <Icon name="mdi:checkbox-blank-outline" v-if="!todo.completed"/>
-      <Icon name="mdi:checkbox-marked-outline" v-else/>
+    <div class="todo-list__checkbox">
+      <Checkbox binary v-model="todo.completed"/>
     </div>
 
-    <input
-        v-if="props.todo.editing"
-        v-model="props.todo.title"
-        type="text"
-        placeholder="empty"
-        @keyup.esc="todoEdit"
-        @keyup.enter="todoEdit"
-        @dblclick="todoDblClickEdit"
-    />
-    <span v-else class="ellipse" @dblclick="todoEdit">{{ props.todo.title }}</span>
+    <div clasS="todo-list__input">
 
-    <div class="btn-group">
-      <div class="btn btn-edit" @click="todoEdit">
+      <InputText
+          v-if="props.todo.editing"
+          v-model="props.todo.title"
+          placeholder="empty"
+          @keyup.esc="todoEdit"
+          @keyup.enter="todoEdit"
+          @dblclick="todoDblClickEdit"
+      />
+      <span v-else class="ellipse" @dblclick="todoEdit">{{ props.todo.title }}</span>
+
+    </div>
+
+    <div class="todo-list__actions">
+      <Button class="btn-edit" @click="todoEdit">
         <Icon name="mdi:pencil" v-if="!todo.editing"/>
         <Icon name="mdi:content-save" v-else/>
-      </div>
+      </Button>
 
-      <div class="btn btn-remove" @click="todoRemove(props.todo)">
+      <Button class="btn-remove" @click="todoRemove(props.todo)">
         <Icon name="mdi:window-close"/>
-      </div>
+      </Button>
     </div>
   </li>
 </template>
@@ -47,10 +49,6 @@ watch(() => props.todo.editing, (val) => {
     }
   }
 })
-
-function todoSetComplete() {
-  props.todo.completed = !props.todo.completed;
-}
 
 /**
  * Edit to-do on double-click
@@ -89,98 +87,25 @@ function todoRemove(todo) {
 
 <style scoped lang="scss">
 li {
-  position: relative;
-  height: 41px;
-  line-height: 40px;
-  font-size: 16px;
-  border-radius: 2px;
-  cursor: default;
+  display: flex;
+  flex-direction: row;
+  margin: 8px 0;
 
-  &:not(:last-child) {
+  .todo-list__checkbox {
+    flex: 0;
+    align-content: center;
   }
 
-  .v-icon {
-    color: #555;
+  .todo-list__input {
+    flex: 1;
+    align-content: center;
   }
 
-  &.completed div.checkbox .v-icon {
-  }
+  .todo-list__actions {
+    align-content: center;
 
-  div.checkbox {
-    display: inline-block;
-    vertical-align: top;
-    width: 42px;
-    height: 40px;
-    line-height: 36px;
-    font-size: 24px;
-    padding-left: 12px;
-    color: #555;
-    cursor: pointer;
-
-    i {
-      font-size: 28px;
-    }
-  }
-
-  input[type="text"] {
-    background: none;
-    border: none;
-    width: calc(100% - 125px);
-    padding: 0 0 0 12px;
-    height: 40px;
-    font-size: 15px;
-    color: #FFF;
-  }
-
-  > span {
-    display: inline-block;
-    vertical-align: top;
-    width: calc(100% - 125px);
-    padding-left: 12px;
-    height: 100%;
-    font-size: 15px;
-  }
-
-  .btn-group {
-    display: none;
-
-    .btn {
-      position: absolute;
-      top: 0;
-      height: 100%;
-      width: 40px;
-      text-align: center;
-      cursor: pointer;
-
-      .v-icon {
-      }
-
-      &.btn-edit {
-        right: 40px;
-
-        .v-icon {
-          font-size: 17px;
-          vertical-align: -1px;
-        }
-      }
-
-      &.btn-remove {
-        right: 0;
-
-        .v-icon {
-          font-size: 21px;
-          vertical-align: -3px;
-        }
-      }
-
-      &:hover {
-      }
-    }
-  }
-
-  &:hover, &.editing {
-    .btn-group {
-      display: block;
+    :deep(.p-button) {
+      margin-right: 8px;
     }
   }
 }

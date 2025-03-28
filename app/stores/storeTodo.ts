@@ -6,4 +6,8 @@ export const useTodoStore = defineStore("owd/todo", () => {
         list,
         filter
     }
+}, {
+    persist: {
+        storage: window.localStorage,
+    }
 })
