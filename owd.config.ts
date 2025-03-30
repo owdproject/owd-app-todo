@@ -24,7 +24,7 @@ export default defineDesktopApp({
     }
   },
   commands: {
-    todo: (app) => {
+    todo: (app: IApplicationController) => {
       app.openWindow("main")
     }
   },

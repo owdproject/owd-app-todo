@@ -1,6 +1,6 @@
 <template>
   <li :class="{ editing: props.todo.editing, completed: props.todo.completed }">
-    <div class="todo-list__checkbox">
+    <div class="todo-list__checkbox flex items-center">
       <Checkbox binary v-model="todo.completed"/>
     </div>
 
@@ -14,19 +14,23 @@
           @keyup.enter="todoEdit"
           @dblclick="todoDblClickEdit"
       />
-      <span v-else class="ellipse" @dblclick="todoEdit">{{ props.todo.title }}</span>
+      <span v-else class="ellipse pl-1" @dblclick="todoEdit">{{ props.todo.title }}</span>
 
     </div>
 
-    <div class="todo-list__actions">
-      <Button class="btn-edit" @click="todoEdit">
-        <Icon name="mdi:pencil" v-if="!todo.editing"/>
-        <Icon name="mdi:content-save" v-else/>
-      </Button>
+    <div class="todo-list__actions flex items-center">
 
-      <Button class="btn-remove" @click="todoRemove(props.todo)">
-        <Icon name="mdi:window-close"/>
-      </Button>
+      <ButtonGroup>
+        <Button class="btn-edit" @click="todoEdit">
+          <Icon name="mdi:pencil" v-if="!todo.editing"/>
+          <Icon name="mdi:content-save" v-else/>
+        </Button>
+
+        <Button class="btn-remove" @click="todoRemove(props.todo)">
+          <Icon name="mdi:window-close"/>
+        </Button>
+      </ButtonGroup>
+
     </div>
   </li>
 </template>
@@ -92,21 +96,12 @@ li {
   margin: 8px 0;
 
   .todo-list__checkbox {
-    flex: 0;
-    align-content: center;
+    height: auto;
   }
 
   .todo-list__input {
     flex: 1;
     align-content: center;
-  }
-
-  .todo-list__actions {
-    align-content: center;
-
-    :deep(.p-button) {
-      margin-right: 8px;
-    }
   }
 }
 </style>
