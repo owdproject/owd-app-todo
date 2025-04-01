@@ -1,8 +1,9 @@
 {
   "name": "owd-app-todo",
+  "private": true,
   "version": "3.0.0-alpha.0",
   "license": "MIT",
-  "homepage": "https://github.com/owdproject/owd-app-todo",
+  "homepage": "https://github.com/owdproject/app-todo",
   "author": {
     "name": "dxlliv",
     "url": "https://github.com/dxlliv"
