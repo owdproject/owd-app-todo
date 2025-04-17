@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="media/screenshot.png" alt="OWD Todo App" width="400" />
+  <img src="assets/screenshot.png" alt="OWD Todo App" />
 </p>
 
 # Todo App
@@ -18,13 +18,13 @@ The OWD Todo App is a module to manage your to-do list within the OWD environmen
     ```
 2. Install the module using npm or yarn:
     ```bash
-    npm install [https://github.com/owdproject/owd-app-todo](https://github.com/owdproject/owd-app-todo)
+    npm install https://github.com/owdproject/app-todo
     ```
 3. Register the application in your OWD configuration file (`owd.config.ts`):
     ```typescript
     // owd.config.ts
     export const owdConfig = {
-        theme: 'github:owdproject/owd-theme-gnome',
+        theme: 'github:owdproject/theme-win95',
         apps: [
             'owd-app-todo'
         ]
