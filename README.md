@@ -23,11 +23,18 @@ The OWD Todo App is a module to manage your to-do list within the OWD environmen
 3. Register the application in your OWD configuration file (`owd.config.ts`):
     ```typescript
     // owd.config.ts
+    import AppTodo from 'owd-app-todo/owd.config'
+    
     export const owdConfig = {
-        theme: 'github:owdproject/theme-win95',
+        theme: ['github:owdproject/theme-win95', { install: true }],
+    
         apps: [
-            'owd-app-todo'
-        ]
+           './node_modules/owd-app-todo',
+        ],
+    
+        loader: async () => {
+            await defineDesktopApp(AppTodo)
+        }
     }
     ```
 
