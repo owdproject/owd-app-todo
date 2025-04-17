@@ -49,13 +49,13 @@ function todoRemove(item) {
 </script>
 
 <template>
-  <Window>
+  <Window :content="{padded: true}">
     <div class="todo-container">
-      <div class="todo-input m-3">
+      <div class="todo-input">
         <TodoInput @todo-add="todoAdd" />
       </div>
 
-      <div class="todo-list mx-3">
+      <div class="todo-list">
         <ul>
           <template v-for="(todo, index) in todoListFiltered" :key="todo.id">
             <TodoList :todo="todo" @todo-remove="todoRemove"/>
