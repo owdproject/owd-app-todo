@@ -12,15 +12,20 @@ The OWD Todo App is a module to manage your to-do list within the OWD environmen
 
 ## Quick Installation
 
-1. Navigate to your OWD client folder in your terminal:
+1.  Navigate to your OWD client folder in your terminal:
+
     ```bash
     cd owd-client
     ```
-2. Install the module using npm or yarn:
+
+2.  Install the module using npm or yarn:
+
     ```bash
-    npm install https://github.com/owdproject/app-todo
+    npm install github:owdproject/app-todo
     ```
-3. Register the application in your OWD configuration file (`owd.config.ts`):
+
+3.  Register the application in your OWD configuration file:
+
     ```typescript
     // owd.config.ts
     import AppTodo from 'owd-app-todo/owd.config'
