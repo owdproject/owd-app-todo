@@ -1,4 +1,6 @@
 <script setup>
+import {nanoid} from "nanoid";
+
 const todoStore = useTodoStore()
 
 const todoCount = computed(() => todoStore.list.length)
