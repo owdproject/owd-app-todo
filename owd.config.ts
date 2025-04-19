@@ -5,7 +5,7 @@ export default {
     icon: "mdi:format-list-bulleted",
     windows: {
         main: {
-            component: () => import('./app/components/Window/WindowTodo.vue'),
+            component: () => import('./runtime/components/Window/WindowTodo.vue'),
             resizable: false,
             size: {
                 width: 480,

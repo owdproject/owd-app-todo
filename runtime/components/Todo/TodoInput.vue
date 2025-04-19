@@ -2,8 +2,10 @@
   <InputText placeholder="Remember me to-do..." @keyup.enter="todoAdd" v-model="input"/>
 </template>
 
-<script setup>
-const input = ref('')
+<script setup lang="ts">
+import {ref} from "@vue/reactivity"
+
+const input = ref<string>('')
 
 const emit = defineEmits([
   'todo-add'

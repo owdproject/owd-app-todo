@@ -1,5 +1,7 @@
 <script setup>
 import {nanoid} from "nanoid";
+import {useTodoStore} from "../../stores/storeTodo";
+import {computed} from "@vue/reactivity"
 
 const todoStore = useTodoStore()
 
@@ -73,9 +75,9 @@ function todoRemove(item) {
           Completed: {{ todoCountCompleted }} / {{ todoCount }}
         </li>
         <li>
-          <a :class="[{ active: todoStore.filter === 'all' }]" @click="todoStore.filter = 'all'">all</a>
-          <a :class="[{ active: todoStore.filter === 'todo' }]" @click="todoStore.filter = 'todo'">to do</a>
-          <a :class="[{ active: todoStore.filter === 'done' }]" @click="todoStore.filter = 'done'">done</a>
+          <a :class="[{ 'opacity-50': todoStore.filter !== 'all' }]" @click="todoStore.filter = 'all'">all</a>
+          <a :class="[{ 'opacity-50': todoStore.filter !== 'todo' }]" @click="todoStore.filter = 'todo'">to do</a>
+          <a :class="[{ 'opacity-50': todoStore.filter !== 'done' }]" @click="todoStore.filter = 'done'">done</a>
         </li>
       </ul>
     </div>

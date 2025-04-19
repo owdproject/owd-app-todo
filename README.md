@@ -1,52 +1,44 @@
 <p align="center">
-  <img src="assets/screenshot.png" alt="OWD Todo App" />
+  <img width="160" height="160" src="https://avatars.githubusercontent.com/u/65117737?s=160&v=4" />
 </p>
-
-# Todo App
-
-> Simple to-do list application for your Open Web Desktop client
+<h1 align="center">To-do</h1>
+<h3 align="center">
+  To-do App for your Open Web Desktop client
+</h3>
 
 ## Overview
 
-The OWD Todo App is a module to manage your to-do list within the OWD environment.
+This app for Open Web Desktop provides a simple and effective to-do list manager.
 
-## Quick Installation
+## Installation
 
-1.  Navigate to your OWD client folder in your terminal:
+1.  Navigate to your client folder in your terminal:
 
     ```bash
     cd owd-client
     ```
 
-2.  Install the module using npm or yarn:
+2.  Install the desktop module using npm or yarn:
 
     ```bash
-    npm install github:owdproject/app-todo
+    npm install @owdproject/app-todo
     ```
 
-3.  Register the application in your OWD configuration file:
+3.  Register the application in your desktop configuration file:
 
     ```typescript
     // owd.config.ts
-    import AppTodo from 'owd-app-todo/owd.config'
-    
-    export const owdConfig = {
-        theme: ['github:owdproject/theme-win95', { install: true }],
-    
+    export default defineDesktopConfig({
         apps: [
-           './node_modules/owd-app-todo',
-        ],
-    
-        loader: async () => {
-            await defineDesktopApp(AppTodo)
-        }
-    }
+            '@owdproject/app-todo',
+        ]
+    })
     ```
 
 ## Compatibility
 
-This application is compatible with Open Web Desktop client version `3.0.0-alpha.0`.
+The application is compatible with Open Web Desktop client version `3.0.0-alpha.5`.
 
 ## License
 
-This project is released under the [MIT License](LICENSE).
+The application is released under the [GNU General Public License v3](LICENSE).

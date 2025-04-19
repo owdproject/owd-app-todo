@@ -1,11 +1,13 @@
 {
-  "name": "owd-app-todo",
-  "private": true,
-  "version": "3.0.0-alpha.0",
-  "license": "MIT",
+  "name": "@owdproject/app-todo",
+  "version": "0.0.1-dev.7",
+  "license": "GPL-3.0-or-later",
   "homepage": "https://github.com/owdproject/app-todo",
   "author": {
     "name": "dxlliv",
     "url": "https://github.com/dxlliv"
+  },
+  "peerDependencies": {
+    "@owdproject/core": ">=3.0.0-alpha.5"
   }
 }
