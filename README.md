@@ -3,7 +3,7 @@
 </p>
 <h1 align="center">To-do</h1>
 <h3 align="center">
-  To-do App for your Open Web Desktop client
+  To-do App for your Open Web Desktop client.
 </h3>
 
 ## Overview
