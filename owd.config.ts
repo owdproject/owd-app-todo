@@ -19,7 +19,7 @@ export default {
         }
     },
     entries: {
-        debug: {
+        todo: {
             command: "todo"
         }
     },
